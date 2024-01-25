@@ -14,7 +14,7 @@ public class MainPage extends BaseTest {
     }
 
     public ElementsPage goToElements() {
-         $("[class='card mt-4 top-card']:nth-child(1)").click();
+         $x("//div[@class='category-cards']/div[1]").click();
          return new ElementsPage();
     }
 }
