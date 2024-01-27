@@ -9,12 +9,13 @@ import service.BaseTest;
 import static com.codeborne.selenide.Selenide.*;
 
 public class MainPage extends BaseTest {
+    private final SelenideElement elementsPage = $x("//div[@class='category-cards']/div[1]");
     public MainPage() {
         open("https://demoqa.com/");
     }
 
-    public ElementsPage goToElements() {
-         $x("//div[@class='category-cards']/div[1]").click();
+    public ElementsPage openElementsPage() {
+         elementsPage.click();
          return new ElementsPage();
     }
 }

@@ -7,12 +7,22 @@ import com.codeborne.selenide.WebDriverRunner;
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ElementsPage {
-    public TextBoxPage openTextBoxPage(){
-        $x("//*[@id=\"item-0\"]").click();
+    private final SelenideElement textBoxPage = $x("//*[@id=\"item-0\"]");
+    private final SelenideElement checkBoxPage = $x("//*[@id=\"item-1\"]");
+    private final SelenideElement radioButtonPage = $x("//*[@id=\"item-2\"]");
+    public TextBoxPage openTextBoxPage() {
+        textBoxPage.click();
         return new TextBoxPage();
     }
-    public RadioButtonPage openRadioButtonPage(){
-        $x("//*[@id=\"item-2\"]").click();
+
+    public CheckBoxPage openCheckBoxPage() {
+        checkBoxPage.click();
+        return new CheckBoxPage();
+    }
+
+    public RadioButtonPage openRadioButtonPage() {
+        radioButtonPage.click();
         return new RadioButtonPage();
     }
+
 }

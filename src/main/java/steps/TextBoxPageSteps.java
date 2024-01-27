@@ -33,7 +33,7 @@ public class TextBoxPageSteps {
         textBoxPage.submitButtonClick();
     }
 
-    public void checkOutputDataIsCorrect(){
+    public OutputClickSubmitModel checkOutputDataIsCorrect(){
         String html = WebDriverRunner.getWebDriver().getPageSource();
         Document doc = Jsoup.parse(html).normalise();
         List<String> list = doc.selectXpath("//div[@id='output']//p").eachText();
@@ -44,7 +44,6 @@ public class TextBoxPageSteps {
             map.put(strings[0].replace(" ", ""), strings[1]);
         }
         System.out.println(gson.toJson(map));
-        OutputClickSubmitModel outputClickSubmitModel = gson.fromJson(gson.toJson(map), OutputClickSubmitModel.class);
-        System.out.println(outputClickSubmitModel.getEmail() + " "+ outputClickSubmitModel.getName());
+        return gson.fromJson(gson.toJson(map), OutputClickSubmitModel.class);
     }
 }
