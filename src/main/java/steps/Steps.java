@@ -1,5 +1,5 @@
 package steps;
 
 public interface Steps {
-    TextBoxPageSteps TEXT_BOX_PAGE_STEPS = new TextBoxPageSteps();
+    TextBoxFrameSteps TEXT_BOX_FRAME_STEPS = new TextBoxFrameSteps();
 }
