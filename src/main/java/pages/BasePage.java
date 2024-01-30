@@ -1,5 +1,5 @@
 package pages;
-import elements.menu.Menu;
+import elements.Menu;
 import pages.elementsPage.ElementsPage;
 
 import static com.codeborne.selenide.Selenide.$x;

@@ -18,4 +18,7 @@ public abstract class BaseElement {
     public String getValue() {
         return element.getValue();
     }
+    public Boolean isEnabled(){
+        return element.is(Condition.enabled);
+    }
 }

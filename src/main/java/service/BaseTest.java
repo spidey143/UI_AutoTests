@@ -8,6 +8,7 @@ import org.aeonbits.owner.ConfigFactory;
 import org.openqa.selenium.PageLoadStrategy;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.BeforeMethod;
 import pages.BasePage;
 import pages.elementsPage.ElementsPage;
 import steps.Steps;
@@ -25,9 +26,13 @@ public abstract class BaseTest extends BasePage implements Steps {
         Configuration.pageLoadStrategy = String.valueOf(PageLoadStrategy.NONE);
         Configuration.timeout = 8000;
         Configuration.webdriverLogsEnabled = true;
-        Configuration.fastSetValue = true;
+        Configuration.fastSetValue = false;
         Configuration.headless = false;
-        open();
+    }
+
+    @BeforeMethod
+    public void init(){
+        open("https://demoqa.com/");
         WebDriverRunner.getWebDriver().manage().window().maximize();
     }
 

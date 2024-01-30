@@ -7,11 +7,10 @@ import static com.codeborne.selenide.Selenide.$x;
 
 public class Card extends BaseElement {
     public Card(SelenideElement element, String cardName) {
-        super(element.as("Карточка: " + cardName));
+        super(element.as("Карточка страницы: " + cardName));
     }
     public Card(String cardName) {
-        this($x("//h5[text()='"
-                        + cardName +"']//parent::div//parent::div//parent::div[@class='card mt-4 top-card']")
+        this($x("//h5[text()='" + cardName + "']//ancestor::div[@class='card mt-4 top-card']")
                 , cardName);
     }
 
