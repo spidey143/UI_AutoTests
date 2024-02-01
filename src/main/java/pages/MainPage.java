@@ -2,6 +2,7 @@ package pages;
 
 import com.codeborne.selenide.SelenideElement;
 import elements.Card;
+import org.openqa.selenium.By;
 import pages.elementsPage.ElementsPage;
 import service.BaseTest;
 

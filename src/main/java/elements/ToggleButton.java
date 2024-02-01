@@ -1,20 +1,20 @@
 package elements;
 
+import com.codeborne.selenide.ClickOptions;
 import com.codeborne.selenide.SelenideElement;
 import elements.base.BaseElement;
+import org.openqa.selenium.By;
 
 import static com.codeborne.selenide.Selenide.$x;
 
 public class ToggleButton extends BaseElement {
-    public ToggleButton(SelenideElement element, String folderName) {
-        super(element.as("Кнопка Переключения папки: " + folderName));
+    public ToggleButton(By by, String folderName) {
+        super(by,"Кнопка переключения папки: " + folderName);
     }
-
     public ToggleButton(String folderName) {
-        this($x("//label[contains(@for,'" + folderName + "')]//ancestor::span/button[@title='Toggle']"), folderName);
+        this(By.xpath("//label[contains(@for,'" + folderName + "')]//ancestor::span/button[@title='Toggle']"), folderName);
     }
-
     public void buttonClick() {
-        element.click();
+        element.click(ClickOptions.usingDefaultMethod());
     }
 }
