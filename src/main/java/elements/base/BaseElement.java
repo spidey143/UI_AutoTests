@@ -31,4 +31,12 @@ public abstract class BaseElement {
     public Boolean isEnabled(){
         return element.is(Condition.enabled);
     }
+
+    public String getAttribute(String attribute) {
+        return element.getAttribute(attribute);
+    }
+
+    public String getCssValue(String value) {
+        return element.getCssValue(value);
+    }
 }

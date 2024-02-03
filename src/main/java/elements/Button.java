@@ -8,6 +8,8 @@ import org.openqa.selenium.By;
 
 import java.awt.*;
 import java.awt.event.InputEvent;
+import java.io.File;
+import java.io.FileNotFoundException;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -27,5 +29,9 @@ public class Button extends BaseElement {
 
     public void rightClick(){
         actions().contextClick(element).perform();
+    }
+
+    public File downloadFile() throws FileNotFoundException {
+        return element.download();
     }
 }

@@ -16,4 +16,7 @@ public class Link extends BaseElement {
     public void click(){
         element.shouldBe(Condition.visible).click();
     }
+    public String getLinkHref(){
+        return element.getAttribute("href");
+    }
 }

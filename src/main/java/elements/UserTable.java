@@ -1,45 +1,37 @@
 package elements;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.ElementsCollection;
-import com.codeborne.selenide.SelenideElement;
 import elements.base.BaseElement;
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 
+import static com.codeborne.selenide.Selenide.$$;
 import static com.codeborne.selenide.Selenide.$$x;
 
 public class UserTable extends BaseElement {
-    private SelenideElement firstName;
-    private SelenideElement lastName;
-    private SelenideElement email;
-    private SelenideElement salary;
-    private SelenideElement department;
-    private SelenideElement action;
 
     public ElementsCollection rows;
-
-    //div[contains(@class, 'rt-tr')]
-    //div[@class='rt-tbody']//div[@role='row']
+    public ElementsCollection headers;
 
     public UserTable(By by) {
         super(by, "Таблица юзеров");
-        ElementsCollection headers = $$x("//div[contains(@class, 'header-content')]");
-        rows = $$x("//div[@class='rt-tbody']//div[@role='row']");
-        firstName = headers.get(0).as("firstName");
-        lastName = headers.get(1).as("lastName");
-        email = headers.get(2).as("email");
-        salary = headers.get(3).as("salary");
-        department = headers.get(4).as("department");
-        action = headers.get(5).as("action");
-
+        headers = $$x("//div[contains(@class, 'header-content')]");
+        rows = $$(".rt-tr-group");
     }
 
-    public void addRow() {
+    public void deleteRow(String rowName){
+        rows.findBy(Condition.text(rowName)).shouldBe(Condition.visible)
+                .findElement(By.cssSelector(".action-buttons :nth-child(2)")).click();
+        rows.find(Condition.text(rowName)).shouldNotBe();
     }
 
-    public void deleteRow() {
+    public void editRow(String rowName){
+        rows.find(Condition.text(rowName)).shouldBe(Condition.visible)
+                .findElement(By.cssSelector(".action-buttons :nth-child(1)")).click();
     }
 
-    public void editRow() {
+    public void findRow(String rowName){
+        rows.find(Condition.text(rowName)).shouldBe();
     }
-
 }

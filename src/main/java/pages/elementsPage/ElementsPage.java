@@ -9,4 +9,8 @@ public class ElementsPage {
     public ButtonsFrame buttonsFrame = new ButtonsFrame();
     public WebTableFrame webTableFrame = new WebTableFrame();
     public LinksFrame linksFrame = new LinksFrame();
+    public BrokenLinksImagesFrame brokenLinksImagesFrame = new BrokenLinksImagesFrame();
+    public  UploadAndDownloadFrame uploadAndDownloadFrame = new UploadAndDownloadFrame();
+    public DynamicPropertiesFrame dynamicPropertiesFrame = new DynamicPropertiesFrame();
+
 }

@@ -14,6 +14,7 @@ import pages.elementsPage.ElementsPage;
 import steps.Steps;
 import utils.Generator;
 
+import static com.codeborne.selenide.FileDownloadMode.PROXY;
 import static com.codeborne.selenide.Selenide.open;
 
 public abstract class BaseTest extends BasePage implements Steps {
@@ -28,6 +29,9 @@ public abstract class BaseTest extends BasePage implements Steps {
         Configuration.webdriverLogsEnabled = true;
         Configuration.fastSetValue = false;
         Configuration.headless = false;
+        Configuration.proxyEnabled = true;
+        Configuration.fileDownload = PROXY;
+        Configuration.downloadsFolder = "src/tmp";
     }
 
     @BeforeMethod
